@@ -7,13 +7,18 @@ module.exports = (sequelize, DataTypes) => {
         },
         shortName: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            field: 'short_name'
         },
         addressLine1: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            field: 'address_line_1'
         },
-        addressLine2: DataTypes.STRING,
+        addressLine2: {
+            type: DataTypes.STRING,
+            field: 'address_line_2'
+        },
         city: {
             type: DataTypes.CHAR(100),
             allowNull: false
@@ -28,10 +33,12 @@ module.exports = (sequelize, DataTypes) => {
         },
         postalCode: {
             type: DataTypes.CHAR(30),
-            allowNull: false
+            allowNull: false,
+            field: 'postal_code'
         },
     }, {
         underscored: true,
+        freezeTableName: true,
     });
     Organization.associate = function(models) {
         // associations can be defined here
