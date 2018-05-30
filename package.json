@@ -12,6 +12,10 @@
     "express": "~4.16.0",
     "express-api-doc": "0.0.12",
     "http-errors": "~1.6.2",
-    "morgan": "~1.9.0"
+    "morgan": "~1.9.0",
+    "npm": "^6.1.0",
+    "pg": "^7.4.3",
+    "sequelize": "^4.37.10",
+    "sequelize-cli": "^4.0.0"
   }
 }
