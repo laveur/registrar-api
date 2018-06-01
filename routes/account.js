@@ -4,7 +4,6 @@ var db = require('../models');
 var util = require('util');
 
 router.get('/', function(req, res, next) {
-    // console.log(util.inspect(db));
     db.Accounts.findAll().then(accounts => {
         results = [];
         accounts.forEach(function(account) {

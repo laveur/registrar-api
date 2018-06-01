@@ -8,6 +8,14 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      event_id: {
+          allowNull: false,
+          type: Sequelize.INTEGER,
+          references: {
+              model: 'Events',
+              key: 'id'
+          }
+      },
       name: {
         type: Sequelize.STRING
       },
@@ -19,7 +27,7 @@ module.exports = {
           allowNull: false,
           defaultValue: '0.00'
       },
-      prereg_price: {
+      presale_price: {
           type: Sequelize.DOUBLE,
           allowNull: false,
           defaultValue: '0.00'

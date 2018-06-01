@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-    var MembershipTiers = sequelize.define('MembershipTiers', {
+    var MembershipTier = sequelize.define('MembershipTier', {
             name: {
                 type: DataTypes.STRING,
                 allowNull: false
@@ -12,23 +12,26 @@ module.exports = (sequelize, DataTypes) => {
             normalPrice: {
                 type: DataTypes.DOUBLE,
                 allowNull: false,
-                defaultValue: 0.00
+                defaultValue: 0.00,
+                field: 'normal_price'
             },
-            preregPrice: {
+            presalePrice: {
                 type: DataTypes.DOUBLE,
                 allowNull: false,
-                defaultValue: 0.00
+                defaultValue: 0.00,
+                field: 'presale_price'
             },
             specialPrice: {
                 type: DataTypes.DOUBLE,
                 allowNull: false,
-                defaultValue: 0.00
+                defaultValue: 0.00,
+                field: 'special_price'
             }
         }, {
             underscored: true,
         });
-        MembershipTiers.associate = function(models) {
-            MembershipTiers.belongsToMany(models.Event, {through: models.EventMembershipTiers});
+        MembershipTier.associate = function(models) {
+            MembershipTier.hasMany(models.Event);
         };
-        return MembershipTiers;
+        return MembershipTier;
     };
